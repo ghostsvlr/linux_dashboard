@@ -15,6 +15,7 @@ $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/users', 'Users::index');
 $routes->delete('/users/delete/(:num)', 'Users::delete/$1');
 $routes->post('/users/update/(:num)', 'Users::update/$1');
+$routes->get('dashboard/getSystemStatus', 'Dashboard::getSystemStatus');
 
 
 
