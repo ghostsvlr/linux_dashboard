@@ -5,23 +5,23 @@
         color: white;
     }
     .sidebar img {
-        width: 100%; /* Faz com que a imagem ocupe toda a largura da sidebar */
-        height: auto; /* Mantém a proporção da imagem */
+        width: 100%; 
+        height: auto; 
     }
     .sidebar a {
         color: white;
     }
     .sidebar a.btn {
-        background-color: #0056b3; /* Cor de fundo original */
-        border: solid 1px transparent; /* Borda transparente */
+        background-color: #0056b3; 
+        border: solid 1px transparent; 
     }
     .sidebar a.btn:hover {
-        background-color: #003d80; /* Azul mais escuro no hover */
-        color: white; /* Mantém a cor do texto branca */
+        background-color: #003d80; 
+        color: white; 
     }
     .separator {
-        border-top: 2px solid #FFFFFF; /* Linha branca */
-        margin: 15px 0; /* Margem para separar a linha dos componentes */
+        border-top: 2px solid #FFFFFF; 
+        margin: 15px 0; 
     }
 </style>
 

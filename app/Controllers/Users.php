@@ -8,7 +8,7 @@ class Users extends Controller
     public function index()
     {
         $userModel = new UserModel();
-        $data['users'] = $userModel->findAll(); // Obtém todos os usuários
+        $data['users'] = $userModel->findAll(); 
         return view('users', $data);
     }
 

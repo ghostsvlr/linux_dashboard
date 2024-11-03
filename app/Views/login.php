@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!-- Link para o CSS do Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Link para o Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         .password-toggle {
-            cursor: pointer; /* Indica que é clicável */
-            position: absolute; /* Posicionamento absoluto */
-            right: 15px; /* Distância da borda direita */
-            top: 70%; /* Centraliza verticalmente */
-            transform: translateY(-50%); /* Ajusta o alinhamento vertical */
-            z-index: 10; /* Garante que o ícone fique acima do input */
+            cursor: pointer;
+            position: absolute; 
+            right: 15px; 
+            top: 70%; 
+            transform: translateY(-50%); 
+            z-index: 10; 
         }
         .position-relative {
-            position: relative; /* Necessário para o posicionamento absoluto do ícone */
+            position: relative; 
         }
     </style>
 </head>

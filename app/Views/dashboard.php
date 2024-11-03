@@ -9,62 +9,62 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .content {
-            margin-left: 270px; /* Espaço para a sidebar */
-            padding: 20px; /* Espaçamento interno do conteúdo */
+            margin-left: 270px; 
+            padding: 20px; 
         }
 
         .status-box {
-            height: 200px; /* Altura dos quadrados ajustada */
-            background-color: #333; /* Preto/cinza escuro */
-            color: #fff; /* Texto branco */
+            height: 200px; 
+            background-color: #333; 
+            color: #fff; 
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 8px;
-            padding: 10px; /* Espaçamento interno */
+            padding: 10px; 
         }
 
         .status-box2 {
-            height: 200px; /* Altura dos quadrados ajustada */
-            background-color: #333; /* Preto/cinza escuro */
-            color: #fff; /* Texto branco */
+            height: 200px; 
+            background-color: #333; 
+            color: #fff; 
             border-radius: 8px;
-            padding: 10px; /* Espaçamento interno */
-            display: flex; /* Usa flexbox */
-            flex-direction: column; /* Organiza o conteúdo em coluna */
-            justify-content: center; /* Alinha o conteúdo ao topo */
-            align-items: center; /* Alinha o conteúdo à esquerda */
+            padding: 10px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
         }
 
         .status-title {
-            font-size: 1.2em; /* Tamanho do título ajustado */
-            margin-bottom: 5px; /* Espaçamento abaixo do título */
-            text-align: center; /* Centraliza o título */
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 <div class="d-flex">
-    <?php include 'sidebar.php'; ?> <!-- Inclui a sidebar aqui -->
+    <?php include 'sidebar.php'; ?> 
 
     <div class="content container mt-5" style="margin-left: 130px">
         <h1 class="text-center">Dashboard do Sistema</h1>
 
         <div class="row mt-5" style="margin-left: 10px">
-            <div class="col-12 col-md-4 mb-3"> <!-- Aumenta a largura para ocupar mais espaço -->
+            <div class="col-12 col-md-4 mb-3">
                 <h4 class="status-title text-center">CPU</h4>
                 <div class="status-box" id="cpu-status">
                     <div>Carregando...</div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mb-3"> <!-- Aumenta a largura para ocupar mais espaço -->
+            <div class="col-12 col-md-4 mb-3"> 
                 <h4 class="status-title text-center">Memória</h4>
                 <div class="status-box" id="memory-status" style="display: flex; flex-direction: column; align-items: center;">
                     <div><span id="memory-usage">Carregando...</span></div>
                     <div><span id="memory-info">1415/7879MB</span></div> 
                 </div>
             </div>
-            <div class="col-12 col-md-4 mb-3"> <!-- Aumenta a largura para ocupar mais espaço -->
+            <div class="col-12 col-md-4 mb-3"> 
                 <h4 class="status-title text-center">Disco</h4>
                 <div class="status-box" id="disk-status" style="display: flex; flex-direction: column; align-items: center;">
                     <div><span id="disk-usage">Carregando...</span></div>
@@ -73,7 +73,6 @@
             </div>
         </div>
 
-        <!-- Seção de Informações S.O. ocupa toda a largura -->
         <div class="row mt-3">
             <div class="col-12 mb-3"> 
                 <h4 class="status-title text-center">Informações S.O.</h4>
@@ -96,10 +95,10 @@
             method: 'GET',
             success: function(data) {
                 $('#cpu-status div').text(data.cpu);
-                $('#memory-status #memory-usage').text(data.memoryUsage); // Atualiza apenas a porcentagem
-                $('#memory-status #memory-info').text(data.memoryInfo + 'MB'); // Atualiza usado/total
-                $('#disk-status #disk-usage').text(data.disk); // Atualiza apenas a porcentagem
-                $('#disk-status #disk-info').text(data.diskInfo); // Atualiza usado/total
+                $('#memory-status #memory-usage').text(data.memoryUsage); 
+                $('#memory-status #memory-info').text(data.memoryInfo + 'MB'); 
+                $('#disk-status #disk-usage').text(data.disk); 
+                $('#disk-status #disk-info').text(data.diskInfo); 
                 $('#os-distribution').text('Distribuição: ' + data.osDistribution);
                 $('#os-version').text('Versão: ' + data.osVersion);
                 $('#os-architecture').text('Arquitetura: ' + data.osArchitecture);
@@ -118,7 +117,7 @@
 
     $(document).ready(function() {
         fetchSystemStatus();
-        setInterval(fetchSystemStatus, 5000); // Atualiza a cada 5 segundos
+        setInterval(fetchSystemStatus, 5000); 
     });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
