@@ -29,7 +29,7 @@
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <div style="display: flex; justify-content: center; align-items;">
-                            <img src="<?= base_url('imagens/bluepex.png') ?>" style="width: 160px; height: 110px;"/>
+                            <img src="<?= base_url('imagens/bluepex-azul.png') ?>" style="width: 160px; height: 110px;"/>
                         </div>
                         <div class="separator" style="border-top: 2px solid; margin: 15px 0;" ></div>
                         <h3 class="card-title text-center mb-4">Login</h3>
