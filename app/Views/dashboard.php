@@ -67,11 +67,12 @@
             </div>
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Disco:</h4>
-                <div class="status-box" id="disk-status">
-                    <div><span id="disk-usage">Uso: Carregando...</span></div><br>
+                <div class="status-box" id="disk-status" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <div><span id="disk-usage">Uso: Carregando...</span></div>
                     <div><span id="disk-info">100GB/500GB</span></div>
                 </div>
             </div>
+
 
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Informações S.O.:</h4>
