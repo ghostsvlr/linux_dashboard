@@ -77,7 +77,7 @@
                 <div class="status-box2" id="os-info">
                     <div id="os-distribution">Distribuição: Carregando...</div>
                     <div id="os-architecture">Arquitetura: Carregando...</div>
-                    <div id="os-version" style="padding: 30px">Versão: Carregando...</div>
+                    <div id="os-version" style="padding-left: 20px">Versão: Carregando...</div>
                 </div>
             </div>
 
