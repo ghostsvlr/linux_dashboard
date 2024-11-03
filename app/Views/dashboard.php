@@ -62,7 +62,7 @@
                 <h4 class="status-title text-center">Memória</h4>
                 <div class="status-box" id="memory-status" style="display: flex; flex-direction: column; align-items: center;">
                     <div><span id="memory-usage">Uso: Carregando...</span></div>
-                    <div><span id="memory-info">1415/7879 MB</span></div> 
+                    <div><span id="memory-info">1415/7879MB</span></div> 
                 </div>
             </div>
             <div class="col-12 col-md-3 mb-3">
@@ -78,8 +78,8 @@
                 <h4 class="status-title text-center">Informações S.O.</h4>
                 <div class="status-box2" id="os-info">
                     <div id="os-distribution">Distribuição: Carregando...</div>
-                    <div id="os-architecture">Arquitetura: Carregando...</div>
                     <div id="os-version">Versão: Carregando...</div>
+                    <div id="os-architecture">Arquitetura: Carregando...</div>
                 </div>
             </div>
 
