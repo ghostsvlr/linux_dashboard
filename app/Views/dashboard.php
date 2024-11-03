@@ -24,7 +24,6 @@
             padding: 10px; /* Espaçamento interno */
         }
 
-        
         .status-box2 {
             height: 200px; /* Altura dos quadrados ajustada */
             background-color: #333; /* Preto/cinza escuro */
@@ -52,38 +51,43 @@
         <h1 class="text-center">Dashboard do Sistema</h1>
 
         <div class="row mt-5" style="margin-left: 10px">
-            <div class="col-12 col-md-3 mb-3">
+            <div class="col-12 col-md-4 mb-3"> <!-- Aumenta a largura para ocupar mais espaço -->
                 <h4 class="status-title text-center">CPU</h4>
                 <div class="status-box" id="cpu-status">
                     <div>Carregando...</div>
                 </div>
             </div>
-            <div class="col-12 col-md-3 mb-3">
+            <div class="col-12 col-md-4 mb-3"> <!-- Aumenta a largura para ocupar mais espaço -->
                 <h4 class="status-title text-center">Memória</h4>
                 <div class="status-box" id="memory-status" style="display: flex; flex-direction: column; align-items: center;">
                     <div><span id="memory-usage">Uso: Carregando...</span></div>
                     <div><span id="memory-info">1415/7879MB</span></div> 
                 </div>
             </div>
-            <div class="col-12 col-md-3 mb-3">
+            <div class="col-12 col-md-4 mb-3"> <!-- Aumenta a largura para ocupar mais espaço -->
                 <h4 class="status-title text-center">Disco</h4>
                 <div class="status-box" id="disk-status" style="display: flex; flex-direction: column; align-items: center;">
                     <div><span id="disk-usage">Uso: Carregando...</span></div>
                     <div><span id="disk-info">100GB/500GB</span></div>
                 </div>
             </div>
-            <div class="col-12 col-md-3 mb-3">
+        </div>
+
+        <!-- Seção de Informações S.O. ocupa toda a largura -->
+        <div class="row mt-3">
+            <div class="col-12 mb-3"> 
                 <h4 class="status-title text-center">Informações S.O.</h4>
-                <div class="status-box2" id="os-info">
+                <div class="status-box2" id="os-info" style="margin-left: 20px">
                     <div id="os-distribution">Distribuição: Carregando...</div>
                     <div id="os-architecture">Arquitetura: Carregando...</div>
-                    <div id="os-version" style="padding-left: 20px">Versão: Carregando...</div>
+                    <div id="os-version">Versão: Carregando...</div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+
+
 
 <script>
     function fetchSystemStatus() {
