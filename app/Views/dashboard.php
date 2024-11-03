@@ -72,14 +72,12 @@
                     <div><span id="disk-info">100GB/500GB</span></div>
                 </div>
             </div>
-
-
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Informações S.O.</h4>
                 <div class="status-box2" id="os-info">
                     <div id="os-distribution">Distribuição: Carregando...</div>
                     <div id="os-architecture">Arquitetura: Carregando...</div>
-                    <div id="os-version">Versão: Carregando...</div>
+                    <div id="os-version" style="font-weight: bold">Versão: Carregando...</div>
                 </div>
             </div>
 
