@@ -61,15 +61,15 @@
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Memória:</h4>
                 <div class="status-box" id="memory-status">
-                    <div><span id="memory-usage">Uso: Carregando...</span></div> <!-- Apenas a porcentagem -->
-                    <div><span id="memory-info">1415/7879 MB</span></div> <!-- Informação usada/total -->
+                    <div><span id="memory-usage">Uso: Carregando...</span></div><br>
+                    <div><span id="memory-info">1415/7879 MB</span></div> 
                 </div>
             </div>
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Disco:</h4>
                 <div class="status-box" id="disk-status">
-                    <div><span id="disk-usage">Uso: Carregando...</span></div> <!-- Apenas a porcentagem -->
-                    <div><span id="disk-info">100GB/500GB</span></div> <!-- Informação usada/total -->
+                    <div><span id="disk-usage">Uso: Carregando...</span></div><br>
+                    <div><span id="disk-info">100GB/500GB</span></div>
                 </div>
             </div>
 
