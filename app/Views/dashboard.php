@@ -96,9 +96,9 @@
             method: 'GET',
             success: function(data) {
                 $('#cpu-status div').text(data.cpu);
-                $('#memory-status #memory-usage').text('Uso: ' + data.memoryUsage); // Atualiza apenas a porcentagem
-                $('#memory-status #memory-info').text(data.memoryInfo); // Atualiza usado/total
-                $('#disk-status #disk-usage').text('Uso: ' + data.disk); // Atualiza apenas a porcentagem
+                $('#memory-status #memory-usage').text(data.memoryUsage); // Atualiza apenas a porcentagem
+                $('#memory-status #memory-info').text(data.memoryInfo + 'MB'); // Atualiza usado/total
+                $('#disk-status #disk-usage').text(data.disk); // Atualiza apenas a porcentagem
                 $('#disk-status #disk-info').text(data.diskInfo); // Atualiza usado/total
                 $('#os-distribution').text('Distribuição: ' + data.osDistribution);
                 $('#os-version').text('Versão: ' + data.osVersion);
