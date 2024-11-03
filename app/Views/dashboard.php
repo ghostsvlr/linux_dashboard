@@ -12,6 +12,26 @@
             margin-left: 270px; /* Espaço para a sidebar */
             padding: 20px; /* Espaçamento interno do conteúdo */
         }
+
+        #system-status {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .status-box {
+            width: 150px;
+            height: 150px;
+            background-color: #333; /* Preto/cinza escuro */
+            color: #fff; /* Texto branco */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            text-align: center;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -23,11 +43,10 @@
             <h1>Dashboard do Sistema Operacional</h1>
             <h2>Bem-vindo, <?= session()->get('username'); ?>!</h2>
 
-            <div id="system-status" class="mt-4">
-                <h3>Status do Sistema</h3>
-                <div class="alert alert-info" id="cpu-status">CPU: Carregando...</div>
-                <div class="alert alert-info" id="memory-status">Memória: Carregando...</div>
-                <div class="alert alert-info" id="disk-status">Disco: Carregando...</div>
+            <div id="system-status">
+                <div class="status-box" id="cpu-status">CPU: Carregando...</div>
+                <div class="status-box" id="memory-status">Memória: Carregando...</div>
+                <div class="status-box" id="disk-status">Disco: Carregando...</div>
             </div>
 
         </div>
@@ -55,8 +74,6 @@
             fetchSystemStatus();
             setInterval(fetchSystemStatus, 5000); // Atualiza a cada 5 segundos
         });
-    </script>
-
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
