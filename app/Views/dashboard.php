@@ -61,17 +61,18 @@
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Memória:</h4>
                 <div class="status-box" id="memory-status">
-                    <div>Uso: <span id="memory-usage">Carregando...</span></div>
-                    <div><span id="memory-info">1000/5000 MB</span></div> <!-- Informação usada/total -->
+                    <div><span id="memory-usage">Uso: Carregando...</span></div> <!-- Apenas a porcentagem -->
+                    <div><span id="memory-info">1415/7879 MB</span></div> <!-- Informação usada/total -->
                 </div>
             </div>
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Disco:</h4>
                 <div class="status-box" id="disk-status">
-                    <div>Uso: <span id="disk-usage">Carregando...</span></div>
+                    <div><span id="disk-usage">Uso: Carregando...</span></div> <!-- Apenas a porcentagem -->
                     <div><span id="disk-info">100GB/500GB</span></div> <!-- Informação usada/total -->
                 </div>
             </div>
+
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Informações S.O.:</h4>
                 <div class="status-box2" id="os-info">
@@ -92,12 +93,15 @@
             method: 'GET',
             success: function(data) {
                 $('#cpu-status div').text(data.cpu);
-                $('#memory-status div').html('Uso: ' + data.memory + '<br><span id="memory-info">' + data.memoryInfo + '</span>'); // Atualiza usado/total
-                $('#disk-status div').html('Uso: ' + data.disk + '<br><span id="disk-info">' + data.diskInfo + '</span>'); // Atualiza usado/total
+                $('#memory-status #memory-usage').text('Uso: ' + data.memoryUsage); // Atualiza apenas a porcentagem
+                $('#memory-status #memory-info').text(data.memoryInfo); // Atualiza usado/total
+                $('#disk-status #disk-usage').text('Uso: ' + data.disk); // Atualiza apenas a porcentagem
+                $('#disk-status #disk-info').text(data.diskInfo); // Atualiza usado/total
                 $('#os-distribution').text('Distribuição: ' + data.osDistribution);
                 $('#os-version').text('Versão: ' + data.osVersion);
                 $('#os-architecture').text('Arquitetura: ' + data.osArchitecture);
             },
+
             error: function() {
                 $('#cpu-status div').text('Erro ao obter status da CPU.');
                 $('#memory-status div').text('Erro ao obter status da memória.');
