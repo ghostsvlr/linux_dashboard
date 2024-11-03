@@ -53,21 +53,21 @@
 
         <div class="row mt-5" style="margin-left: 10px">
             <div class="col-12 col-md-3 mb-3">
-                <h4 class="status-title text-center">CPU:</h4>
+                <h4 class="status-title text-center">CPU</h4>
                 <div class="status-box" id="cpu-status">
                     <div>Carregando...</div>
                 </div>
             </div>
             <div class="col-12 col-md-3 mb-3">
-                <h4 class="status-title text-center">Memória:</h4>
-                <div class="status-box" id="memory-status">
-                    <div><span id="memory-usage">Uso: Carregando...</span></div><br>
+                <h4 class="status-title text-center">Memória</h4>
+                <div class="status-box" id="memory-status" style="display: flex; flex-direction: column; align-items: center;">
+                    <div><span id="memory-usage">Uso: Carregando...</span></div>
                     <div><span id="memory-info">1415/7879 MB</span></div> 
                 </div>
             </div>
             <div class="col-12 col-md-3 mb-3">
-                <h4 class="status-title text-center">Disco:</h4>
-                <div class="status-box" id="disk-status" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <h4 class="status-title text-center">Disco</h4>
+                <div class="status-box" id="disk-status" style="display: flex; flex-direction: column; align-items: center;">
                     <div><span id="disk-usage">Uso: Carregando...</span></div>
                     <div><span id="disk-info">100GB/500GB</span></div>
                 </div>
@@ -75,7 +75,7 @@
 
 
             <div class="col-12 col-md-3 mb-3">
-                <h4 class="status-title text-center">Informações S.O.:</h4>
+                <h4 class="status-title text-center">Informações S.O.</h4>
                 <div class="status-box2" id="os-info">
                     <div id="os-distribution">Distribuição: Carregando...</div>
                     <div id="os-architecture">Arquitetura: Carregando...</div>
