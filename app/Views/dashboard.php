@@ -53,7 +53,10 @@
 
         $(document).ready(function() {
             fetchSystemStatus();
+            setInterval(fetchSystemStatus, 5000); // Atualiza a cada 5 segundos
         });
+    </script>
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
