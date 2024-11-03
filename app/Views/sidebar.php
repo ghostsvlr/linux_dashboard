@@ -31,8 +31,15 @@
     </div>
     <div class="separator"></div>
     <h5 class="mb-4 text-center">Olá, <?= esc(session()->get('username')) ?>!</h5>
-    <a href="/dashboard" class="d-block mb-2 btn">Dashboard</a>
-    <a href="/users" class="d-block mb-2 btn">Gerenciamento de Usuários</a>
+    <a href="/dashboard" class="d-block mb-2 btn">
+    <i class="fas fa-chart-bar"></i> Dashboard
+        
+    </a>
+    <a href="/users" class="d-block mb-2 btn">
+        <i class="fas fa-wrench"></i> Gerenciamento de Usuários
+    </a>
+
+
     <div class="mt-auto">
         <button onclick="window.location.href='/logout';" class="btn btn-danger w-100">Desconectar</button>
     </div>
