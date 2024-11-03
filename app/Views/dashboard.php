@@ -61,13 +61,15 @@
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Memória:</h4>
                 <div class="status-box" id="memory-status">
-                    <div>Carregando...</div>
+                    <div>Uso: <span id="memory-usage">Carregando...</span></div>
+                    <div><span id="memory-info">1000/5000 MB</span></div> <!-- Informação usada/total -->
                 </div>
             </div>
             <div class="col-12 col-md-3 mb-3">
                 <h4 class="status-title text-center">Disco:</h4>
                 <div class="status-box" id="disk-status">
-                    <div>Carregando...</div>
+                    <div>Uso: <span id="disk-usage">Carregando...</span></div>
+                    <div><span id="disk-info">100GB/500GB</span></div> <!-- Informação usada/total -->
                 </div>
             </div>
             <div class="col-12 col-md-3 mb-3">
@@ -90,8 +92,8 @@
             method: 'GET',
             success: function(data) {
                 $('#cpu-status div').text(data.cpu);
-                $('#memory-status div').text(data.memory);
-                $('#disk-status div').text(data.disk);
+                $('#memory-status div').html('Uso: ' + data.memory + '<br><span id="memory-info">' + data.memoryInfo + '</span>'); // Atualiza usado/total
+                $('#disk-status div').html('Uso: ' + data.disk + '<br><span id="disk-info">' + data.diskInfo + '</span>'); // Atualiza usado/total
                 $('#os-distribution').text('Distribuição: ' + data.osDistribution);
                 $('#os-version').text('Versão: ' + data.osVersion);
                 $('#os-architecture').text('Arquitetura: ' + data.osArchitecture);
