@@ -60,14 +60,14 @@
             <div class="col-12 col-md-4 mb-3"> <!-- Aumenta a largura para ocupar mais espaço -->
                 <h4 class="status-title text-center">Memória</h4>
                 <div class="status-box" id="memory-status" style="display: flex; flex-direction: column; align-items: center;">
-                    <div><span id="memory-usage">Uso: Carregando...</span></div>
+                    <div><span id="memory-usage">Carregando...</span></div>
                     <div><span id="memory-info">1415/7879MB</span></div> 
                 </div>
             </div>
             <div class="col-12 col-md-4 mb-3"> <!-- Aumenta a largura para ocupar mais espaço -->
                 <h4 class="status-title text-center">Disco</h4>
                 <div class="status-box" id="disk-status" style="display: flex; flex-direction: column; align-items: center;">
-                    <div><span id="disk-usage">Uso: Carregando...</span></div>
+                    <div><span id="disk-usage">Carregando...</span></div>
                     <div><span id="disk-info">100GB/500GB</span></div>
                 </div>
             </div>
