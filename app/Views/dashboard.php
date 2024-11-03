@@ -49,7 +49,7 @@
     <?php include 'sidebar.php'; ?> <!-- Inclui a sidebar aqui -->
 
     <div class="content container mt-5" style="margin-left: 130px">
-        <h1 class="text-center">Dashboard do Sistema Operacional</h1>
+        <h1 class="text-center">Dashboard do Sistema</h1>
 
         <div class="row mt-5" style="margin-left: 10px">
             <div class="col-12 col-md-3 mb-3">
@@ -78,8 +78,8 @@
                 <h4 class="status-title text-center">Informações S.O.</h4>
                 <div class="status-box2" id="os-info">
                     <div id="os-distribution">Distribuição: Carregando...</div>
-                    <div id="os-version">Versão: Carregando...</div>
                     <div id="os-architecture">Arquitetura: Carregando...</div>
+                    <div id="os-version">Versão: Carregando...</div>
                 </div>
             </div>
 
