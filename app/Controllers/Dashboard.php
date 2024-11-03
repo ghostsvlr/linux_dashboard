@@ -8,23 +8,31 @@ class Dashboard extends Controller
     {
         // Verifica se o usuário está logado
         if (!session()->get('loggedIn')) {
-            return redirect()->to('/login'); // Redireciona para a página de login se não estiver logado
+            return redirect()->to('/login');
         }
 
-        return view('dashboard'); // Exibe a visualização do dashboard
+        return view('dashboard');
     }
 
     public function getSystemStatus()
     {
-        // Executa comandos do sistema para obter o uso da CPU, memória e disco
-        $cpuUsage = sys_getloadavg()[0]; // Média de carga da CPU
-        $memoryUsage = shell_exec("free -m | awk 'NR==2{printf \"%s/%sMB (%.2f%%)\", $3,$2,$3*100/$2 }'");
-        $diskUsage = shell_exec("df -h / | awk 'NR==2{printf \"%d/%dGB (%s)\", $3,$2,$5}'");
+        // Obter informações do sistema operacional
+        $cpuUsage = shell_exec("top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\([0-9.]*\)%* id.*/\\1/' | awk '{print 100 - $1}'");
+        $memoryUsage = shell_exec("free | grep Mem | awk '{print $3/$2 * 100.0}'");
+        $diskUsage = shell_exec("df -h / | tail -1 | awk '{print $5}'");
+        
+        // Informações do SO
+        $osDistribution = php_uname('s');  // Exemplo: Linux
+        $osVersion = php_uname('r');       // Exemplo: versão do kernel
+        $osArchitecture = php_uname('m');  // Exemplo: x86_64
 
         return $this->response->setJSON([
-            'cpu' => round($cpuUsage * 100, 2) . '%',
-            'memory' => $memoryUsage,
+            'cpu' => round($cpuUsage, 2) . '%',
+            'memory' => round($memoryUsage, 2) . '%',
             'disk' => $diskUsage,
+            'osDistribution' => $osDistribution,
+            'osVersion' => $osVersion,
+            'osArchitecture' => $osArchitecture,
         ]);
     }
 }

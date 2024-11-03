@@ -13,24 +13,34 @@
             padding: 20px; /* Espaçamento interno do conteúdo */
         }
 
-        #system-status {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
         .status-box {
-            width: 150px;
-            height: 150px;
+            height: 200px; /* Altura dos quadrados ajustada */
             background-color: #333; /* Preto/cinza escuro */
             color: #fff; /* Texto branco */
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1em;
-            text-align: center;
             border-radius: 8px;
+            padding: 10px; /* Espaçamento interno */
+        }
+
+        
+        .status-box2 {
+            height: 200px; /* Altura dos quadrados ajustada */
+            background-color: #333; /* Preto/cinza escuro */
+            color: #fff; /* Texto branco */
+            border-radius: 8px;
+            padding: 10px; /* Espaçamento interno */
+            display: flex; /* Usa flexbox */
+            flex-direction: column; /* Organiza o conteúdo em coluna */
+            justify-content: center; /* Alinha o conteúdo ao topo */
+            align-items: center; /* Alinha o conteúdo à esquerda */
+        }
+
+        .status-title {
+            font-size: 1.2em; /* Tamanho do título ajustado */
+            margin-bottom: 5px; /* Espaçamento abaixo do título */
+            text-align: center; /* Centraliza o título */
         }
     </style>
 </head>
@@ -38,43 +48,70 @@
 <div class="d-flex">
     <?php include 'sidebar.php'; ?> <!-- Inclui a sidebar aqui -->
 
-    <div class="content">
-        <div class="container mt-5">
-            <h1>Dashboard do Sistema Operacional</h1>
-            <h2>Bem-vindo, <?= session()->get('username'); ?>!</h2>
+    <div class="content container mt-5" style="margin-left: 130px">
+        <h1 class="text-center">Dashboard do Sistema Operacional</h1>
 
-            <div id="system-status">
-                <div class="status-box" id="cpu-status">CPU: Carregando...</div>
-                <div class="status-box" id="memory-status">Memória: Carregando...</div>
-                <div class="status-box" id="disk-status">Disco: Carregando...</div>
+        <div class="row mt-5" style="margin-left: 10px">
+            <div class="col-12 col-md-3 mb-3">
+                <h4 class="status-title text-center">CPU:</h4>
+                <div class="status-box" id="cpu-status">
+                    <div>Carregando...</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <h4 class="status-title text-center">Memória:</h4>
+                <div class="status-box" id="memory-status">
+                    <div>Carregando...</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <h4 class="status-title text-center">Disco:</h4>
+                <div class="status-box" id="disk-status">
+                    <div>Carregando...</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <h4 class="status-title text-center">Informações S.O.:</h4>
+                <div class="status-box2" id="os-info">
+                    <div id="os-distribution">Distribuição: Carregando...</div>
+                    <div id="os-architecture">Arquitetura: Carregando...</div>
+                    <div id="os-version">Versão: Carregando...</div>
+                </div>
             </div>
 
         </div>
     </div>
+</div>
 
-    <script>
-        function fetchSystemStatus() {
-            $.ajax({
-                url: '/dashboard/getSystemStatus', 
-                method: 'GET',
-                success: function(data) {
-                    $('#cpu-status').text('CPU: ' + data.cpu);
-                    $('#memory-status').text('Memória: ' + data.memory);
-                    $('#disk-status').text('Disco: ' + data.disk);
-                },
-                error: function() {
-                    $('#cpu-status').text('Erro ao obter status da CPU.');
-                    $('#memory-status').text('Erro ao obter status da memória.');
-                    $('#disk-status').text('Erro ao obter status do disco.');
-                }
-            });
-        }
-
-        $(document).ready(function() {
-            fetchSystemStatus();
-            setInterval(fetchSystemStatus, 5000); // Atualiza a cada 5 segundos
+<script>
+    function fetchSystemStatus() {
+        $.ajax({
+            url: '/dashboard/getSystemStatus', 
+            method: 'GET',
+            success: function(data) {
+                $('#cpu-status div').text(data.cpu);
+                $('#memory-status div').text(data.memory);
+                $('#disk-status div').text(data.disk);
+                $('#os-distribution').text('Distribuição: ' + data.osDistribution);
+                $('#os-version').text('Versão: ' + data.osVersion);
+                $('#os-architecture').text('Arquitetura: ' + data.osArchitecture);
+            },
+            error: function() {
+                $('#cpu-status div').text('Erro ao obter status da CPU.');
+                $('#memory-status div').text('Erro ao obter status da memória.');
+                $('#disk-status div').text('Erro ao obter status do disco.');
+                $('#os-distribution').text('Erro ao obter distribuição do SO.');
+                $('#os-version').text('Erro ao obter versão do SO.');
+                $('#os-architecture').text('Erro ao obter arquitetura do SO.');
+            }
         });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    }
+
+    $(document).ready(function() {
+        fetchSystemStatus();
+        setInterval(fetchSystemStatus, 5000); // Atualiza a cada 5 segundos
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
