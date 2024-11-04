@@ -98,7 +98,6 @@
     </style>
 </head>
 <body class="bg-light">
-
     <div id="customAlert" class="custom-alert">
         <span id="alertMessage">Mensagem do alerta</span>
     </div>

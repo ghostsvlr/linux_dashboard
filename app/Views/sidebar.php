@@ -39,7 +39,6 @@
         <i class="fas fa-wrench"></i> Gerenciamento de Usuários
     </a>
 
-
     <div class="mt-auto">
         <button onclick="window.location.href='/logout';" class="btn btn-danger w-100">Desconectar</button>
     </div>

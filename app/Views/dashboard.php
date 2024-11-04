@@ -45,82 +45,82 @@
     </style>
 </head>
 <body>
-<div class="d-flex">
-    <?php include 'sidebar.php'; ?> 
+    <div class="d-flex">
+        <?php include 'sidebar.php'; ?> 
 
-    <div class="content container mt-5" style="margin-left: 130px">
-        <h1 class="text-center">Dashboard do Sistema</h1>
+        <div class="content container mt-5" style="margin-left: 130px">
+            <h1 class="text-center">Dashboard do Sistema</h1>
 
-        <div class="row mt-5" style="margin-left: 10px">
-            <div class="col-12 col-md-4 mb-3">
-                <h4 class="status-title text-center">CPU</h4>
-                <div class="status-box" id="cpu-status">
-                    <div>Carregando...</div>
+            <div class="row mt-5" style="margin-left: 10px">
+                <div class="col-12 col-md-4 mb-3">
+                    <h4 class="status-title text-center">CPU</h4>
+                    <div class="status-box" id="cpu-status">
+                        <div>Carregando...</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-3"> 
+                    <h4 class="status-title text-center">Memória</h4>
+                    <div class="status-box" id="memory-status" style="display: flex; flex-direction: column; align-items: center;">
+                        <div><span id="memory-usage">Carregando...</span></div>
+                        <div><span id="memory-info">1415/7879MB</span></div> 
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-3"> 
+                    <h4 class="status-title text-center">Disco</h4>
+                    <div class="status-box" id="disk-status" style="display: flex; flex-direction: column; align-items: center;">
+                        <div><span id="disk-usage">Carregando...</span></div>
+                        <div><span id="disk-info">100GB/500GB</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mb-3"> 
-                <h4 class="status-title text-center">Memória</h4>
-                <div class="status-box" id="memory-status" style="display: flex; flex-direction: column; align-items: center;">
-                    <div><span id="memory-usage">Carregando...</span></div>
-                    <div><span id="memory-info">1415/7879MB</span></div> 
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mb-3"> 
-                <h4 class="status-title text-center">Disco</h4>
-                <div class="status-box" id="disk-status" style="display: flex; flex-direction: column; align-items: center;">
-                    <div><span id="disk-usage">Carregando...</span></div>
-                    <div><span id="disk-info">100GB/500GB</span></div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row mt-3">
-            <div class="col-12 mb-3"> 
-                <h4 class="status-title text-center">Informações S.O.</h4>
-                <div class="status-box2" id="os-info" style="margin-left: 20px">
-                    <div id="os-distribution">Distribuição: Carregando...</div>
-                    <div id="os-architecture">Arquitetura: Carregando...</div>
-                    <div id="os-version">Versão: Carregando...</div>
+            <div class="row mt-3">
+                <div class="col-12 mb-3"> 
+                    <h4 class="status-title text-center">Informações S.O.</h4>
+                    <div class="status-box2" id="os-info" style="margin-left: 20px">
+                        <div id="os-distribution">Distribuição: Carregando...</div>
+                        <div id="os-architecture">Arquitetura: Carregando...</div>
+                        <div id="os-version">Versão: Carregando...</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
-<script>
-    function fetchSystemStatus() {
-        $.ajax({
-            url: '/dashboard/getSystemStatus', 
-            method: 'GET',
-            success: function(data) {
-                $('#cpu-status div').text(data.cpu);
-                $('#memory-status #memory-usage').text(data.memoryUsage); 
-                $('#memory-status #memory-info').text(data.memoryInfo + 'MB'); 
-                $('#disk-status #disk-usage').text(data.disk); 
-                $('#disk-status #disk-info').text(data.diskInfo); 
-                $('#os-distribution').text('Distribuição: ' + data.osDistribution);
-                $('#os-version').text('Versão: ' + data.osVersion);
-                $('#os-architecture').text('Arquitetura: ' + data.osArchitecture);
-            },
+    <script>
+        function fetchSystemStatus() {
+            $.ajax({
+                url: '/dashboard/getSystemStatus', 
+                method: 'GET',
+                success: function(data) {
+                    $('#cpu-status div').text(data.cpu);
+                    $('#memory-status #memory-usage').text(data.memoryUsage); 
+                    $('#memory-status #memory-info').text(data.memoryInfo + 'MB'); 
+                    $('#disk-status #disk-usage').text(data.disk); 
+                    $('#disk-status #disk-info').text(data.diskInfo); 
+                    $('#os-distribution').text('Distribuição: ' + data.osDistribution);
+                    $('#os-version').text('Versão: ' + data.osVersion);
+                    $('#os-architecture').text('Arquitetura: ' + data.osArchitecture);
+                },
 
-            error: function() {
-                $('#cpu-status div').text('Erro ao obter status da CPU.');
-                $('#memory-status div').text('Erro ao obter status da memória.');
-                $('#disk-status div').text('Erro ao obter status do disco.');
-                $('#os-distribution').text('Erro ao obter distribuição do SO.');
-                $('#os-version').text('Erro ao obter versão do SO.');
-                $('#os-architecture').text('Erro ao obter arquitetura do SO.');
-            }
+                error: function() {
+                    $('#cpu-status div').text('Erro ao obter status da CPU.');
+                    $('#memory-status div').text('Erro ao obter status da memória.');
+                    $('#disk-status div').text('Erro ao obter status do disco.');
+                    $('#os-distribution').text('Erro ao obter distribuição do SO.');
+                    $('#os-version').text('Erro ao obter versão do SO.');
+                    $('#os-architecture').text('Erro ao obter arquitetura do SO.');
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            fetchSystemStatus();
+            setInterval(fetchSystemStatus, 5000); 
         });
-    }
-
-    $(document).ready(function() {
-        fetchSystemStatus();
-        setInterval(fetchSystemStatus, 5000); 
-    });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
