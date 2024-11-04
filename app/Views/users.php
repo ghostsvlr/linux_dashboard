@@ -240,6 +240,7 @@
                 success: function(response) {
                     if (response.success) {
                         sessionStorage.setItem('notification', "Usuário " + username +  " apagado com sucesso!");
+                        sessionStorage.setItem('notificationType', 'success'); 
                         location.reload(); 
                     } else {
                         alert(response.error);
